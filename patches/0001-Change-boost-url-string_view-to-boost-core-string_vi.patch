@@ -1,0 +1,36 @@
+From 972f82acbeb66d3b8d71ec014b2187c2b0f5ef4e Mon Sep 17 00:00:00 2001
+From: Petre Pircalabu <ppircalabu@bitdefender.com>
+Date: Thu, 16 Dec 2021 23:53:38 +0200
+Subject: [PATCH] Change boost::url::string_view to boost::core::string_view
+
+Signed-off-by: Petre Pircalabu <ppircalabu@bitdefender.com>
+Suggested-by: Vinnie Falco <vinnie.falco@gmail.com>
+---
+ include/boost/url/string.hpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/include/boost/url/string.hpp b/include/boost/url/string.hpp
+index aa6c1c4..54ea78a 100644
+--- a/include/boost/url/string.hpp
++++ b/include/boost/url/string.hpp
+@@ -13,6 +13,7 @@
+ #include <boost/url/detail/config.hpp>
+ #include <boost/type_traits/make_void.hpp>
+ #include <boost/utility/string_view.hpp>
++#include <boost/core/detail/string_view.hpp>
+ #include <memory>
+ #include <string>
+ #ifndef BOOST_NO_CXX17_HDR_STRING_VIEW
+@@ -39,7 +40,8 @@ using pos_t = std::size_t;
+     owning the character buffer extends until
+     the string view is no longer referenced.
+ */
+-typedef boost::string_view string_view;
++typedef boost::core::string_view string_view;
++
+ 
+ /** Alias for `std::true_type` if a `T` can be converted to a string_view
+ 
+-- 
+2.25.1
+

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string_view>
 #include <boost/core/detail/string_view.hpp>
-#include <boost/url/url_view.hpp>
+#include <boost/url/src.hpp>
 
 int main()
 {

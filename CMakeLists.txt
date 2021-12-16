@@ -19,11 +19,11 @@ if(Boost_FOUND)
 
     FetchContent_Declare(
         boosturl
-        URL https://github.com/CPPAlliance/url/archive/refs/tags/beta-1.tar.gz 
+        URL https://github.com/CPPAlliance/url/archive/refs/tags/beta-1.tar.gz
         URL_HASH MD5=5a6f4cecdb4223a48c03c2c28b297cbc
+        PATCH_COMMAND patch -p1 < "${CMAKE_CURRENT_SOURCE_DIR}/patches/0001-Change-boost-url-string_view-to-boost-core-string_vi.patch"
     )
 
-    FetchContent_GetProperties(spdlog)
     if(NOT boosturl_POPULATED)
         FetchContent_Populate(boosturl)
         #Use Header-only boosturl.
@@ -34,5 +34,6 @@ if(Boost_FOUND)
     add_executable(test
 	src/main.cpp
     )
+
 endif()
 
